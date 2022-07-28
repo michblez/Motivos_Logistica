@@ -16,7 +16,6 @@ class motivo():
 
   def __init__(self, planilha) -> None:
     self.planilha = self.planilha_excel(planilha)
-
   
   def planilha_excel(self, planilha):
 
@@ -32,18 +31,13 @@ class motivo():
 
     return df
 
-
   def contagem_filtramotivo(self, motivo:str =''):  
     if motivo:
       df = self.planilha.query(f'MOTIVO_SOLICITACAO =="{motivo}"')
       contagem = len(df)
 
     return contagem
-  
-  def soma_motivos(self, motivo:str =''):
-    df = self.planilha.loc[:,['MOTIVO_SOLICITACAO']].groupby(['MOTIVO_SOLICITACAO']).agg('sum')
-    return df.res
-    
+   
 #planilha excel
 df_motivo = motivo('relatorio_kpi0707.xlsx')
 
