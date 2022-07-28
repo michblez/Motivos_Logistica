@@ -1,7 +1,7 @@
 from consultas import Total_Entregue, Total_Avaria, Quantidade_Entregue_Errada, Item_Entregue_Errado, Ausencia_de_Item
 
 
-#////////////////    CARD PERCENTUAL AVARIAS / ENTREGUE (TAXA) ////////////////
+#////////////////    CARD PERCENTUAL DE AVARIAS X ENTREGUE  ////////////////
 def Percentual_Avarias_Entregues():
 
   TaxaAvarias_Entregues = Total_Avaria() / Total_Entregue()
@@ -10,7 +10,7 @@ def Percentual_Avarias_Entregues():
 
   return TaxaAvarias_Entregues
 
-#/////////////////  CARD COM PERCENTUAL DE FALHAS DE SEPARAÇÃO LOGISTICA     ///////////////////
+#///////////////  CARD COM PERCENTUAL DE FALHAS DE SEPARAÇÃO LOGISTICA     //////////////
 def Falhas_Separacao():
 
   Soma_todosmotivos = Quantidade_Entregue_Errada + Item_Entregue_Errado + Ausencia_de_Item
@@ -21,6 +21,7 @@ def Falhas_Separacao():
 
   return FalhaSeparacao_Taxa
 
+#////////////////   PERCENTUAL DE FALHAS DE SEPARAÇÃO + AVARIAS X ENTREGUES   ////////////////////
 def FalhaSeparacao_Avarias():
   Soma_todosmotivos = Quantidade_Entregue_Errada + Item_Entregue_Errado + Ausencia_de_Item + Total_Avaria()
 
@@ -29,6 +30,3 @@ def FalhaSeparacao_Avarias():
   Taxa_FalhaSeparacao_Avaria = "{:.2%}".format(Taxa_FalhaSeparacao_Avaria)
 
   return Taxa_FalhaSeparacao_Avaria
-
-
-print(Falhas_Separacao())

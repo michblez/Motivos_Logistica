@@ -12,7 +12,6 @@ usuario = "Michel.florencio"
 password = "M1ch3l!Fl0@2022"
 
 
-
 patharquivos = os.path.abspath(os.path.dirname(__file__))
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','csv','xlsx'}
 

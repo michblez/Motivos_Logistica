@@ -39,6 +39,10 @@ class motivo():
       contagem = len(df)
 
     return contagem
+  
+  def soma_motivos(self, motivo:str =''):
+    df = self.planilha.loc[:,['MOTIVO_SOLICITACAO']].groupby(['MOTIVO_SOLICITACAO']).agg('sum')
+    return df.res
     
 #planilha excel
 df_motivo = motivo('relatorio_kpi0707.xlsx')
@@ -62,9 +66,9 @@ def QuantidadeEntregue():
         GROUP BY CodigoPedido) maxlog
         ON maxlog.CodigoPedido = lg.CodigoPedido
         where ParaIdEtapaFlexy = 9 
-		AND lg.IdLog = maxlog.ultimaetapa
+		    AND lg.IdLog = maxlog.ultimaetapa
         AND DataAtualizacao between '{mespassado}-01' and '{mes_atual}-01'
-		AND IdUsuarioAlteracao = 'Aplicacao'
+		    AND IdUsuarioAlteracao = 'Aplicacao'
         """))
         lista_entreguetotal = conn.execute(query_entregue).all()
         for lista in lista_entreguetotal:
@@ -110,3 +114,5 @@ def Total_Entregue():
     TotalEntregue = Entregue[0]['Quantidade_Entregue']
 
     return TotalEntregue
+
+print(df_motivo.soma_motivos())
