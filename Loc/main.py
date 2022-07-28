@@ -1,4 +1,4 @@
-from consulta import Total_Entregue, Total_Avaria, Quantidade_Entregue_Errada, Item_Entregue_Errado, Ausencia_de_Item
+from consultas import Total_Entregue, Total_Avaria, Quantidade_Entregue_Errada, Item_Entregue_Errado, Ausencia_de_Item
 
 
 #////////////////    CARD PERCENTUAL AVARIAS / ENTREGUE (TAXA) ////////////////
@@ -29,3 +29,6 @@ def FalhaSeparacao_Avarias():
   Taxa_FalhaSeparacao_Avaria = "{:.2%}".format(Taxa_FalhaSeparacao_Avaria)
 
   return Taxa_FalhaSeparacao_Avaria
+
+
+print(Falhas_Separacao())
